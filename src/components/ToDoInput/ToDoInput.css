@@ -1,0 +1,43 @@
+#Box {
+    display: flex;
+    justify-content: space-around;
+}
+
+#todo {
+    background-color: #343a40;
+    border: 2px solid #232529a8;
+    border-radius: 5px;
+    outline: none;
+    color: #e8eaed;
+    line-height: 2.5rem;
+    font-size: 2vmin;
+    width: 80%;
+    margin: 1rem;
+    padding: 0 0.5rem;
+}
+
+@media screen and (max-width: 600px) {
+    #Box #todo {
+        font-size: 3vmin;
+    }
+}
+
+#saveBtn {
+    border: 2px solid #232529a8;
+    border-radius: 5px;
+    background: linear-gradient(to right, #DD5E89 0%, #F7BB97 51%, #DD5E89 100%);
+    margin: 1rem 1rem 1rem 0;
+    padding: 15px 25px;
+    text-transform: uppercase;
+    transition: 0.2s;
+    background-size: 200% auto;
+    color: #e8eaed;
+    text-align: center;
+    cursor: pointer;
+}
+
+#saveBtn:active {
+    background-position: right center;
+    border: 2px solid black;
+    transform: translateY(2px);
+}

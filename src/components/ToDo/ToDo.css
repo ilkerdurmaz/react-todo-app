@@ -1,0 +1,53 @@
+#toDo {
+    background-color: #343a40;
+    border: 2px solid #232529a8;
+    border-color: #232529a8;
+    border-radius: 5px;
+    margin: 1rem;
+    padding: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#toDo p {
+    color: #e8eaed;
+    font-size: 1rem;
+    padding: 0 0.5rem;
+    white-space: normal;
+    word-wrap: wrap;
+    word-break: break-word;
+    text-align: start;
+}
+
+#toDo button {
+    background-color: transparent;
+    border: none;
+    border-radius: 90px;
+    margin: none;
+    padding: none;
+    cursor: pointer;
+    color: #e8eaed;
+}
+
+#toDo span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#delete:hover {
+    color: red !important;
+}
+
+#check:hover {
+    color: yellow;
+}
+
+#toDo button:active {
+    transform: translateY(2px);
+}
+
+.react-icons {
+    vertical-align: middle;
+}
