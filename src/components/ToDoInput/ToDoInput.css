@@ -41,3 +41,9 @@
     border: 2px solid black;
     transform: translateY(2px);
 }
+
+.validationBorder {
+    border: 2px solid #DD5E89 !important;
+    box-shadow: 0px 0px 5px 5px #DD5E89;
+    transition: 0.2s ease-in-out;
+}

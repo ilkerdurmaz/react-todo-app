@@ -1,29 +1,33 @@
 import './ToDoInput.css';
-import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addTodo } from '../../todoSlice';
 
 
+export default function ToDo() {
 
-export default function ToDo({ handler }) {
-    const [todo, setTodo] = useState('');
+    const dispatch = useDispatch();
 
-    function handleChange(e) {
-        setTodo(e.target.value);
-    }
-
-    function saveTodo() {
-        if (todo.length > 2) {
-            handler({
-                message: todo,
+    function handleSubmit(e) {
+        e.preventDefault();
+        if (e.target.description.value.length > 2) {
+            dispatch(addTodo({
+                description: e.target.description.value,
                 isDone: false
-            });
-            setTodo('');
+            }));
+            e.target.reset();
         }
-
+        else {
+            e.target.description.classList.toggle("validationBorder")
+            setTimeout(() => {
+                e.target.description.classList.toggle("validationBorder")
+            }, 500);
+        }
     }
+
     return (
-        <div id='Box'>
-            <input type="text" placeholder='Enter a To-Do with at least 3 letters.' id='todo' onChange={handleChange} value={todo} />
-            <button id='saveBtn' onClick={saveTodo}>Save</button>
-        </div>
+        <form onSubmit={handleSubmit} id='Box'>
+            <input type="text" placeholder='Enter a To-Do with at least 3 letters.' id='todo' name="description" required />
+            <button id='saveBtn' type="submit">Save</button>
+        </form>
     );
 }

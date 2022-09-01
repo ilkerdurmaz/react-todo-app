@@ -1,38 +1,12 @@
 import "./Main.css";
 import ToDoInput from '../ToDoInput/ToDoInput';
 import ToDo from '../ToDo/ToDo';
-import { useState, useEffect } from "react";
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
+import { useSelector } from 'react-redux';
 
 
 export default function Main() {
-  const [todos, setTodos] = useState(localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : []);
-
-  function updateTodos(value) {
-    setTodos([...todos, value]);
-  }
-
-  function deleteTodo(index) {
-    setTodos(todos.filter((_, i) => i !== index));
-  }
-
-  function checkMark(index) {
-    setTodos(
-      todos.map((todo, i) => {
-        if (i === index) {
-          return {
-            ...todo,
-            isDone: !todo.isDone
-          };
-        }
-        return todo;
-      })
-    );
-  }
-
-  useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
+  const todos = useSelector((state) => state.todoList.value)
 
   return (
     <div className="main">
@@ -44,11 +18,11 @@ export default function Main() {
         </div>
       </div>
       <hr />
-      <ToDoInput handler={updateTodos} />
+      <ToDoInput />
       <hr />
       <div id="toDoList">
         {todos.length > 0 ? todos.map((todo, index) => {
-          return <ToDo message={todo.message} key={index} index={index} deleteTodo={deleteTodo} checkMark={checkMark} isDone={todo.isDone} />;
+          return <ToDo todo={todo} key={index} index={index} />;
         }) : <h3>List is empty.</h3>}
       </div>
     </div>
