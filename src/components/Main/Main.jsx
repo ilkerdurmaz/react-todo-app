@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 
 
 export default function Main() {
-  const todos = useSelector((state) => state.todoList.value)
+  const todos = useSelector((state) => state.todoList.list)
 
   return (
     <div className="main">

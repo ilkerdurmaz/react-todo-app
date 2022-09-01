@@ -9,4 +9,6 @@
 ### Built With
 
 * [React.js](https://reactjs.org/)
+* [React-Redux](https://react-redux.js.org/)
+* [Redux-Toolkit](https://redux-toolkit.js.org/)
 * [React Icons](https://react-icons.github.io/react-icons/)
